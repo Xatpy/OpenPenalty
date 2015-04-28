@@ -229,3 +229,11 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# CUSTOM
+/env
+/obj
+/bin
+*.pyc
+*.sln
+*.pyproj
