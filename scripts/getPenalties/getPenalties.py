@@ -49,14 +49,18 @@ def checkIfPenalty(lines):
 
 
 def processLeague():
-	infile = open('liga2014-15.html', 'r')
+	#infile = open('liga2014-15.html', 'r')
+	#for line in infile:
 
-	for line in infile:
+	urlLeague = 'http://www.bdfutbol.com/es/t/t2014-15.html'
+	league = urllib2.urlopen(urlLeague)
+
+	for line in league:
 		if "/p/p.php?id=" in line:
 			extractLinksFromLine(line)
 
 
 #Open file
-f = open('output.txt', 'w')
+f = open('output_t2014-15.txt', 'w')
 processLeague()
 f.close()
