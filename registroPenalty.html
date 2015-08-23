@@ -1,0 +1,185 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <title>My Parse App</title>
+  <meta name="description" content="My Parse App">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+
+  <script type="text/javascript" src="./js/code.js"></script>
+</head>
+
+
+<body>
+  <div id="main">
+    <h1>::: OpenPenalty :::</h1>
+
+    <h1>Regitrar penalty</h1>
+
+    <div>
+      <h2>Equipo 1 - Lanzador</h2>
+      <select id="comboTeam_1" onchange="team1_changed()">
+      </select>
+      <select id="comboPlayers_1">
+      </select>
+      <select id="ladoDisparo">
+        <option>Izquierdo</option>
+        <option>Derecho</option>
+        <option>Centro</option>
+      </select>
+    </div>
+
+    <div>
+      <h2>Equipo 2 - Portero</h2>
+      <select id="comboTeam_2" onchange="team2_changed()">
+      </select>
+      <span></span>
+      <select id="comboPlayers_2">
+      </select>
+      <select id="ladoPortero">
+        <option>Izquierdo</option>
+        <option>Derecho</option>
+        <option>Centro</option>
+      </select>
+    </div>
+
+    <div>
+      <h2>Resultado</h2>
+      <select id="resultadoPenalty">
+        <option>Gol</option>
+        <option>Parado</option>
+        <option>Fuera</option>
+      </select>
+    </div>
+
+    <div>
+      <h2>Datos extra</h2>
+      <label>Fecha:</label>
+      <input type="text" id="fecha"></input>
+      <label>Video URL:</label>
+      <input type="text" id="videoURL"></input>
+    </div>
+
+<br/ >
+    <div>
+      <button onclick="registrarPenalty()">Guardar penalty</button>
+    </div>
+  </div>
+
+
+  <script type="text/javascript">
+
+    function init() {
+      initParse();
+
+      var combosTeams = [];
+      combosTeams.push(document.getElementById("comboTeam_1"));
+      combosTeams.push(document.getElementById("comboTeam_2"));
+      var callbacks = [];
+      callbacks.push(team1_changed);
+      callbacks.push(team2_changed);
+      loadTeams(combosTeams, callbacks);
+    }
+
+    function team1_changed(){
+      var value = document.getElementById("comboTeam_1").value;
+      var indexTeam = getIndexOfTeam(value);
+      debugger
+      if (indexTeam > -1) {
+        getPlayersOfTheTeam(g_Teams[indexTeam].obj, false);
+      }
+    }
+
+    function team2_changed(){
+      var value = document.getElementById("comboTeam_2").value;
+      var indexTeam = getIndexOfTeam(value);
+      debugger
+      if (indexTeam > -1) {
+        getPlayersOfTheTeam(g_Teams[indexTeam].obj, true);
+      }
+    }
+
+    //segundo parametro: es un portero
+    function getPlayersOfTheTeam(obj, isGoalkeeper){
+      var Player = Parse.Object.extend("Player");
+      var query = new Parse.Query(Player);
+      query.equalTo("EquipoID", obj);
+      if (isGoalkeeper) {
+        //restrict to goakeeper
+        query.equalTo("Position", "Portero");
+      } else {
+        query.notEqualTo("Position", "Portero");
+      }
+
+      query.find({
+        success: function(results) {
+          fillPlayers(results, isGoalkeeper);
+        },
+        error: function(error) {
+          alert("Error: " + error.code + " " + error.message);
+        }
+      });
+    }
+
+    function fillPlayers(results, isGoalkeeper) {
+      var combo;
+      if (!isGoalkeeper) {
+        combo = document.getElementById("comboPlayers_1");
+      } else {
+        combo = document.getElementById("comboPlayers_2");
+      }
+
+      //Clear
+      //Con JQuery es más facil
+      combo.innerHTML = "";
+
+      debugger
+      for (var i=0; i < results.length; i++) {
+        var option = document.createElement("option");
+
+        option.id = results[i].id;
+        option.value = results[i].get("Name");
+        option.innerHTML = results[i].get("Name");
+
+        combo.appendChild(option);
+        combo.appendChild(option);
+      }
+
+    }
+
+    function registrarPenalty(){
+/*
+      var lanzaID = a;
+
+      var Penalty = Parse.Object.extend("Penalty");
+      var penalty = new Penalty();
+      team.set("LanzadorID", );
+      team.set("PorteroID",);
+      team.set("Estado", document.getElementById("resultadoPenalty").value);
+      team.set("Lado_disparo", document.getElementById("ladoDisparo").value);
+      team.set("Lado_portero", document.getElementById("ladoPortero").value);
+      team.set("Fecha", document.getElementById("fecha").value);
+      team.set("Video", document.getElementById("videoURL").value);
+
+      team.save(null, {
+          success: function(team) {
+
+          },
+          error: function(gameScore, error) {
+            alert('Failed to create new object, with error code: ' + error.message);
+          }
+        });
+*/
+    }
+
+
+    init();
+
+  </script>
+</body>
+
+</html>

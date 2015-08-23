@@ -1,0 +1,123 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <title>Open Penalty : Registros jugadores / equipo</title>
+  <meta name="description" content="My Parse App">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+  
+  <script type="text/javascript" src="./js/code.js"></script>
+
+</head>
+
+
+<body>
+  <div id="main">
+    <h1>::: OpenPenalty :::</h1>
+
+    <div>
+      <h2>Regitrar equipo</h2>
+      <input type="text" id="inputEquipo" value="">
+      <button onclick="registrarEquipo()">Registrar equipo</button>
+    </div>
+
+    <hr>
+
+    <div>
+      <h2>Registrar jugador</h2>
+      <label>Equipo:</label>
+      <select id="comboTeam"></select>
+      <br>
+      <label for="namePlayer">Nombre:</label> 
+      <input type="text" id="namePlayer"> 
+      <br>
+      <label>Pie:</label>
+      <select id="comboPie">
+        <option>Diestro</option>
+        <option>Zurdo</option>
+      </select>
+      <br>
+      <label>Position:</label>
+      <select id="comboPosition">
+        <option>Delantero</option>
+        <option>Portero</option>
+        <option>Defensa</option>
+        <option>Centrocampista</option>
+      </select>
+      <br>
+      <button onclick="registrarJugador()">Registrar jugador</button>
+    </div>
+
+
+  <script type="text/javascript">
+
+    function init() {
+      initParse();
+
+      var combosTeams = [];
+      combosTeams.push(document.getElementById("comboTeam"));
+      loadTeams(combosTeams);
+    }
+
+    init();
+
+    function validationsPlayers(){
+
+    }
+
+
+    function registrarJugador() {
+      var nombreJugador = document.getElementById("namePlayer").value;
+
+      if (nombreJugador) {
+        var Player = Parse.Object.extend("Player");
+        var player = new Player();
+        player.set("Name", nombreJugador);
+        player.set("Foot", document.getElementById("comboPie").value);
+        player.set("Position", document.getElementById("comboPosition").value);
+        var TeamId = getTeamObject(document.getElementById("comboTeam").value);
+        player.set("EquipoID", TeamId);
+        debugger
+        player.save(null, {
+            success: function(player) {
+              alert('Jugador: ' + nombreJugador + ' creado.');
+
+            },
+            error: function(gameScore, error) {
+              alert('Failed to create new object, with error code: ' + error.message);
+            }
+          });
+      } else {
+        alert('Introduce el nombre del jugador');
+      }
+    }
+
+    function registrarEquipo(){
+      var value = document.getElementById("inputEquipo").value;
+
+      if (value) {
+        var Team = Parse.Object.extend("Team");
+        var team = new Team();
+        team.set("Name", value);
+        team.save(null, {
+            success: function(team) {
+
+            },
+            error: function(gameScore, error) {
+              alert('Failed to create new object, with error code: ' + error.message);
+            }
+          });
+      } else {
+        alert('Introduce el nombre del equipo');
+      }
+    }
+
+
+  </script>
+</body>
+
+</html>
