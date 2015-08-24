@@ -87,42 +87,20 @@
 
     function team1_changed(){
       var value = document.getElementById("comboTeam_1").value;
-      var indexTeam = getIndexOfTeam(value);
+      var combo = document.getElementById("comboPlayers_1");
       debugger
-      if (indexTeam > -1) {
-        getPlayersOfTheTeam(g_Teams[indexTeam].obj, false);
+      if (value) {
+        getPlayers(value, combo, false);
       }
     }
 
     function team2_changed(){
       var value = document.getElementById("comboTeam_2").value;
-      var indexTeam = getIndexOfTeam(value);
+      var combo = document.getElementById("comboPlayers_2");
       debugger
-      if (indexTeam > -1) {
-        getPlayersOfTheTeam(g_Teams[indexTeam].obj, true);
+      if (value) {
+        getPlayers(value, combo, true);
       }
-    }
-
-    //segundo parametro: es un portero
-    function getPlayersOfTheTeam(obj, isGoalkeeper){
-      var Player = Parse.Object.extend("Player");
-      var query = new Parse.Query(Player);
-      query.equalTo("EquipoID", obj);
-      if (isGoalkeeper) {
-        //restrict to goakeeper
-        query.equalTo("Position", "Portero");
-      } else {
-        query.notEqualTo("Position", "Portero");
-      }
-
-      query.find({
-        success: function(results) {
-          fillPlayers(results, isGoalkeeper);
-        },
-        error: function(error) {
-          alert("Error: " + error.code + " " + error.message);
-        }
-      });
     }
 
     function fillPlayers(results, isGoalkeeper) {

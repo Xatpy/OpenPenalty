@@ -6,12 +6,10 @@
 // FUNCITONS
 
 function initParse(){
-  Parse.initialize("CLAVE_APP, CLAVE_JAVASCRIPT")
+  Parse.initialize("clave", "clave");
 }
 
 function fillTeams(results, combosTeams){
-
-
   for (var comboTeamIndex = 0; comboTeamIndex < combosTeams.length; ++comboTeamIndex ) {
     var combo = combosTeams[comboTeamIndex];
 
@@ -38,7 +36,33 @@ function executeCallbacks(callbacks) {
   }
 }
 
-function loadPlayers(){
+function createOptionPlayer(player) {
+  var option = document.createElement("option");
+
+  option.id = player.id;
+  option.value = player.get("Name");
+  option.innerHTML = player.get("Name");
+
+  return option;
+}
+
+function getPlayers(teamName, combo, isGoalkeeper){
+  debugger
+  combo.innerHTML = "";
+  for (var indexTeams = 0; indexTeams < g_Players.length; ++indexTeams) {
+    if (teamName === g_Players[indexTeams].team) {
+      for (var indexPlayers = 0; indexPlayers < g_Players[indexTeams].playersArr.length; ++indexPlayers) {
+        var pos = g_Players[indexTeams].playersArr[indexPlayers].get("Position");
+        if ( (isGoalkeeper && pos === "Portero") || (!isGoalkeeper && pos !== "Portero") ){
+          var option = createOptionPlayer(g_Players[indexTeams].playersArr[indexPlayers]);
+          combo.appendChild(option); 
+        }
+      }//for indexPlayers
+    }// if teamName
+  }// for indexteams
+}
+
+function loadPlayers(callbacks){
   for (var indexTeam = 0; indexTeam < g_Teams.length; indexTeam++) {
     var Player = Parse.Object.extend("Player");
     var query = new Parse.Query(Player);
@@ -64,6 +88,8 @@ function loadPlayers(){
             objTeamPlayers.playersArr.push(results[indexPlayers]);
           }
           g_Players.push(objTeamPlayers);
+          
+          executeCallbacks(callbacks);
         }
       },
       error: function(error) {
@@ -86,10 +112,45 @@ function loadTeams(combosTeams, callbacks){
         g_Teams.push(objTeam);
       }
       fillTeams(results, combosTeams);
+      loadPlayers(callbacks);
+    },
+    error: function(error) {
+      alert("Error: " + error.code + " " + error.message);
+    }
+  });
+}
 
-      executeCallbacks(callbacks);        
+function getPlayersOfTeam(indexTeam, combo){
+  combo.innerHTML = "";
 
-      loadPlayers();
+  for (var indexPlayer = 0; indexPlayer < g_Teams[indexTeam].length; ++ indexPlayer) {
+    var option = document.createElement("option");
+
+    option.id = g_Teams[indexTeam].a.id;
+    option.value = results[i].get("Name");
+    option.innerHTML = results[i].get("Name");
+
+    combo.appendChild(option);
+    combo.appendChild(option);
+  }
+
+}
+
+//segundo parametro: es un portero
+function getPlayersOfTheTeamParse(obj, isGoalkeeper){
+  var Player = Parse.Object.extend("Player");
+  var query = new Parse.Query(Player);
+  query.equalTo("EquipoID", obj);
+  if (isGoalkeeper) {
+    //restrict to goakeeper
+    query.equalTo("Position", "Portero");
+  } else {
+    query.notEqualTo("Position", "Portero");
+  }
+
+  query.find({
+    success: function(results) {
+      fillPlayers(results, isGoalkeeper);
     },
     error: function(error) {
       alert("Error: " + error.code + " " + error.message);
