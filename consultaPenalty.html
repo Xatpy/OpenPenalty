@@ -1,0 +1,54 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <title>OpenPenalty - Consulta penalty</title>
+  <meta name="description" content="My Parse App">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
+
+  <script type="text/javascript" src="./js/code.js"></script>
+</head>
+
+
+<body>
+  <div id="main">
+    <h1>::: OpenPenalty :::</h1>
+
+    <h1>Consulta penalty</h1>
+
+    <div>
+      <table id="tablePenalty">
+        <tr>
+          <td>Lanzador</td>
+          <td>Portero</td>
+          <td>Estado</td>
+          <td>Lado disparo</td>
+          <td>Lado portero</td>
+          <td>Fecha</td>
+          <td>Video</td>
+        </tr>        
+      <table>
+    </div>
+
+    <div>    
+
+   
+  </div>
+
+
+  <script type="text/javascript">
+
+    (function init() {
+      initParse();
+
+      getPenalties(document.getElementById("tablePenalty"));
+    }());    
+
+  </script>
+</body>
+
+</html>

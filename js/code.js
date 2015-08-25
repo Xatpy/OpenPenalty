@@ -6,7 +6,9 @@
 // FUNCITONS
 
 function initParse(){
-  Parse.initialize("clave", "clave");
+  var clave_app = "your_key";
+  var clave_javascript = "your_key";
+  Parse.initialize(clave_app, clave_javascript);
 }
 
 function fillTeams(results, combosTeams){
@@ -38,16 +40,13 @@ function executeCallbacks(callbacks) {
 
 function createOptionPlayer(player) {
   var option = document.createElement("option");
-
   option.id = player.id;
   option.value = player.get("Name");
   option.innerHTML = player.get("Name");
-
   return option;
 }
 
 function getPlayers(teamName, combo, isGoalkeeper){
-  debugger
   combo.innerHTML = "";
   for (var indexTeams = 0; indexTeams < g_Players.length; ++indexTeams) {
     if (teamName === g_Players[indexTeams].team) {
@@ -67,17 +66,8 @@ function loadPlayers(callbacks){
     var Player = Parse.Object.extend("Player");
     var query = new Parse.Query(Player);
     query.equalTo("EquipoID", g_Teams[indexTeam].obj);
-    /*
-    if (isGoalkeeper) {
-      //restrict to goakeeper
-      query.equalTo("Position", "Portero");
-    } else {
-      query.notEqualTo("Position", "Portero");
-    }
-    */
     query.find({
       success: function(results) {
-        debugger
         if (results.length > 0) {
           var teamName = getTeamName(results[0].get("EquipoID").id)
           var objTeamPlayers = {
@@ -111,7 +101,9 @@ function loadTeams(combosTeams, callbacks){
         var objTeam = {"id": results[i].get("Name"), "obj": results[i]};
         g_Teams.push(objTeam);
       }
-      fillTeams(results, combosTeams);
+      if (combosTeams && combosTeams.length > 0) {
+        fillTeams(results, combosTeams);        
+      }
       loadPlayers(callbacks);
     },
     error: function(error) {
@@ -158,40 +150,122 @@ function getPlayersOfTheTeamParse(obj, isGoalkeeper){
   });
 }
 
-  function getIndexOfTeam(name){
-    for (var i=0; i < g_Teams.length; ++i) {
-      if (g_Teams[i].id === name) {
-        return i;
-      }
+function getIndexOfTeam(name){
+  for (var i=0; i < g_Teams.length; ++i) {
+    if (g_Teams[i].id === name) {
+      return i;
     }
-    return -1;
   }
+  return -1;
+}
 
-  function getTeamObject(name){
-     for (var i=0; i < g_Teams.length; ++i) {
-      if (g_Teams[i].id === name) {
-        return g_Teams[i].obj;
-      }
+function getTeamObject(name){
+   for (var i=0; i < g_Teams.length; ++i) {
+    if (g_Teams[i].id === name) {
+      return g_Teams[i].obj;
     }
-    return -1;
   }
+  return -1;
+}
 
-  function getTeamName(obj) {
-    for (var i=0; i < g_Teams.length; ++i) {
-      if (g_Teams[i].obj.id === obj) {
-        return g_Teams[i].obj.get("Name");
-      }
+function getTeamName(obj) {
+  for (var i=0; i < g_Teams.length; ++i) {
+    if (g_Teams[i].obj.id === obj) {
+      return g_Teams[i].obj.get("Name");
     }
-    return "";
   }
+  return "";
+}
 
-  /*function getPlayerObject(name){
-     for (var i=0; i < g_Teams.length; ++i) {
-      if (g_Teams[i].id === name) {
-        return g_Teams[i].obj;
-      }
+function getPlayerObjFromTeam(teamName, playerName) {
+  for (var indexTeams = 0; indexTeams < g_Players.length; ++indexTeams) {
+    if (teamName === g_Players[indexTeams].team) {
+      for (var indexPlayers = 0; indexPlayers < g_Players[indexTeams].playersArr.length; ++indexPlayers) {
+        if ( playerName === g_Players[indexTeams].playersArr[indexPlayers].get("Name") ){
+          return g_Players[indexTeams].playersArr[indexPlayers];
+        }
+      }//for indexPlayers
     }
-    return -1;
-  }*/
+  }
+  return {};
+}
 
+function getPlayerNameFromId(playerId) {
+  for (var indexTeams = 0; indexTeams < g_Players.length; ++indexTeams) {
+    if (playerId === g_Players[indexTeams].team) {
+      for (var indexPlayers = 0; indexPlayers < g_Players[indexTeams].playersArr.length; ++indexPlayers) {
+        if ( playerId === g_Players[indexTeams].playersArr[indexPlayers].id ){
+          debugger
+          return g_Players[indexTeams].playersArr[indexPlayers].get("Name");
+        }
+      }//for indexPlayers
+    }
+  }
+  return {};
+}
+
+function createTable(results, table) {    
+  for (var i = 0; i < results.length; ++i) {
+    var tr = document.createElement('tr');
+
+    var tdLanzador = document.createElement('td');
+    var tdPortero = document.createElement('td');
+    var tdEstado = document.createElement('td');
+    var tdLado_Disparo = document.createElement('td');
+    var tdLado_Portero = document.createElement('td');
+    var tdFecha = document.createElement('td');
+    var tdVideo = document.createElement('td');
+
+    //var lanzadorNombre = getPlayerNameFromId(results[i].get("LanzadorID").id);
+    var textLanzador = document.createTextNode(results[i].get("LanzadorID").id);
+    //var textPortero = document.createTextNode(results[i].get("PorteroID").id);
+    var textPortero = document.createTextNode(results[i].get("PorteroID").id);
+    var textEstado = document.createTextNode(results[i].get("Estado").id);
+    var textLado_Disparo = document.createTextNode(results[i].get("Lado_disparo"));
+    var textLado_Portero = document.createTextNode(results[i].get("Lado_portero"));
+    var fechaRes = results[i].get("Fecha");
+    if (!fechaRes) {
+      fechaRes = "";
+    }
+    var textFecha = document.createTextNode(fechaRes);
+    var videoRes = results[i].get("Video");
+    if (!videoRes) {
+      videoRes = "";
+    }
+    var textVideo = document.createTextNode(videoRes);
+
+    tdLanzador.appendChild(textLanzador);
+    tdPortero.appendChild(textPortero);
+    tdEstado.appendChild(textEstado);
+    tdLado_Disparo.appendChild(textLado_Disparo);
+    tdLado_Portero.appendChild(textLado_Portero);
+    tdFecha.appendChild(textFecha);
+    tdVideo.appendChild(textVideo);
+
+    tr.appendChild(tdLanzador);
+    tr.appendChild(tdPortero);
+    tr.appendChild(tdEstado);
+    tr.appendChild(tdLado_Disparo);
+    tr.appendChild(tdLado_Portero);
+    tr.appendChild(tdFecha);
+    tr.appendChild(tdVideo);      
+
+    table.appendChild(tr);
+  }
+}
+
+function getPenalties(table) {
+  var Penalty = Parse.Object.extend("Penalty");
+  var penaltyQuery = new Parse.Query(Penalty);
+  penaltyQuery.ascending("Name");
+  penaltyQuery.find({
+    success: function(results) {
+      debugger
+      createTable(results, table);
+    },
+    error: function(error) {
+      alert("Error: " + error.code + " " + error.message);
+    }
+  });
+}
 

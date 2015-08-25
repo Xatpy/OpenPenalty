@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
 
-  <title>My Parse App</title>
+  <title>Registro penalty</title>
   <meta name="description" content="My Parse App">
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="css/reset.css">
@@ -60,11 +60,12 @@
       <h2>Datos extra</h2>
       <label>Fecha:</label>
       <input type="text" id="fecha"></input>
+      <br />
       <label>Video URL:</label>
       <input type="text" id="videoURL"></input>
     </div>
 
-<br/ >
+    <br/ >
     <div>
       <button onclick="registrarPenalty()">Guardar penalty</button>
     </div>
@@ -88,7 +89,6 @@
     function team1_changed(){
       var value = document.getElementById("comboTeam_1").value;
       var combo = document.getElementById("comboPlayers_1");
-      debugger
       if (value) {
         getPlayers(value, combo, false);
       }
@@ -97,7 +97,6 @@
     function team2_changed(){
       var value = document.getElementById("comboTeam_2").value;
       var combo = document.getElementById("comboPlayers_2");
-      debugger
       if (value) {
         getPlayers(value, combo, true);
       }
@@ -112,10 +111,8 @@
       }
 
       //Clear
-      //Con JQuery es más facil
       combo.innerHTML = "";
 
-      debugger
       for (var i=0; i < results.length; i++) {
         var option = document.createElement("option");
 
@@ -126,34 +123,56 @@
         combo.appendChild(option);
         combo.appendChild(option);
       }
-
     }
 
     function registrarPenalty(){
-/*
-      var lanzaID = a;
+
+      debugger
+      var lanzadorEquipo = document.getElementById("comboTeam_1").value;
+      var lanzadorNombre = document.getElementById("comboPlayers_1").value;
+      var lanzadorObj = getPlayerObjFromTeam(lanzadorEquipo, lanzadorNombre);
+
+      if (!lanzadorObj) {
+        alert("Error. Seleccione un lanzador.");
+        return;
+      } 
+
+      var porteroEquipo = document.getElementById("comboTeam_2").value;
+      var porteroNombre = document.getElementById("comboPlayers_2").value;
+      var porteroObj = getPlayerObjFromTeam(lanzadorEquipo, lanzadorNombre);
+
+      if (!porteroObj) {
+        alert("Error. Seleccione un portero.");
+        return;
+      } 
+
+      var fecha = document.getElementById("fecha").value;
+      var videoURL = document.getElementById("videoURL").value;
 
       var Penalty = Parse.Object.extend("Penalty");
       var penalty = new Penalty();
-      team.set("LanzadorID", );
-      team.set("PorteroID",);
-      team.set("Estado", document.getElementById("resultadoPenalty").value);
-      team.set("Lado_disparo", document.getElementById("ladoDisparo").value);
-      team.set("Lado_portero", document.getElementById("ladoPortero").value);
-      team.set("Fecha", document.getElementById("fecha").value);
-      team.set("Video", document.getElementById("videoURL").value);
+      penalty.set("LanzadorID", lanzadorObj);
+      penalty.set("PorteroID", porteroObj);
+      penalty.set("Estado", document.getElementById("resultadoPenalty").value);
+      penalty.set("Lado_disparo", document.getElementById("ladoDisparo").value);
+      penalty.set("Lado_portero", document.getElementById("ladoPortero").value);
 
-      team.save(null, {
+      if (fecha) {
+        penalty.set("Fecha", document.getElementById("fecha").value);
+      }
+      if (videoURL) {
+        penalty.set("Video", document.getElementById("videoURL").value);        
+      }
+
+      penalty.save(null, {
           success: function(team) {
-
+            alert('Penalty registrado.');
           },
           error: function(gameScore, error) {
             alert('Failed to create new object, with error code: ' + error.message);
           }
         });
-*/
     }
-
 
     init();
 
