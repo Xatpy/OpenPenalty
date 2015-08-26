@@ -1,14 +1,16 @@
 // GLOBAL
   var g_Teams = [];
   var g_Players = [];
+  var g_Ranking = [];
 
 
 // FUNCITONS
 
+//Parse --> Settings --> Keys
 function initParse(){
-  var clave_app = "your_key";
-  var clave_javascript = "your_key";
-  Parse.initialize(clave_app, clave_javascript);
+  var applicationID = "key";
+  var javascriptKey = "key";
+  Parse.initialize(applicationID, javascriptKey);
 }
 
 function fillTeams(results, combosTeams){
@@ -215,12 +217,10 @@ function createTable(results, table) {
     var tdLado_Portero = document.createElement('td');
     var tdFecha = document.createElement('td');
     var tdVideo = document.createElement('td');
-
-    //var lanzadorNombre = getPlayerNameFromId(results[i].get("LanzadorID").id);
-    var textLanzador = document.createTextNode(results[i].get("LanzadorID").id);
-    //var textPortero = document.createTextNode(results[i].get("PorteroID").id);
-    var textPortero = document.createTextNode(results[i].get("PorteroID").id);
-    var textEstado = document.createTextNode(results[i].get("Estado").id);
+    debugger
+    var textLanzador = document.createTextNode(results[i].get("LanzadorID").get("Name"));    
+    var textPortero = document.createTextNode(results[i].get("PorteroID").get("Name"));
+    var textEstado = document.createTextNode(results[i].get("Estado"));
     var textLado_Disparo = document.createTextNode(results[i].get("Lado_disparo"));
     var textLado_Portero = document.createTextNode(results[i].get("Lado_portero"));
     var fechaRes = results[i].get("Fecha");
@@ -254,18 +254,27 @@ function createTable(results, table) {
   }
 }
 
+function setRankingData(results) {
+  for (var i = 0; i < results.length; ++i) {
+    g_Ranking;
+  }
+}
+
 function getPenalties(table) {
   var Penalty = Parse.Object.extend("Penalty");
   var penaltyQuery = new Parse.Query(Penalty);
-  penaltyQuery.ascending("Name");
+  penaltyQuery.include("LanzadorID");
+  penaltyQuery.include("PorteroID");
   penaltyQuery.find({
     success: function(results) {
       debugger
+      //setRankingData(results);
       createTable(results, table);
     },
     error: function(error) {
       alert("Error: " + error.code + " " + error.message);
     }
   });
+
 }
 
