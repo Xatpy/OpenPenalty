@@ -254,9 +254,34 @@ function createTable(results, table) {
   }
 }
 
+function getRankingPlayer(namePlayer) {
+  for (var i = 0; i < g_Ranking.length; ++i) {
+    if (g_Ranking[i].name === namePlayer) {
+      return i;
+    }
+  }
+  return -1;
+}
+
 function setRankingData(results) {
+  debugger
+
   for (var i = 0; i < results.length; ++i) {
-    g_Ranking;
+    var nameStriker = results[i].get("LanzadorID").get("Name");
+    var nameKeeper = results[i].get("PorteroID").get("Name");
+
+    var playerIndexInRanking = getRankingPlayer(nameStriker);
+    if (playerIndexInRanking > -1) {
+      g_Ranking[playerIndexInRanking].goals.push(results[i]);
+    } else {
+      // New data for player
+      var obj = { name : nameStriker };
+      obj.goals = [];
+      obj.goals.push(results[i]);
+
+      g_Ranking.push(obj);
+    }
+
   }
 }
 
@@ -268,7 +293,7 @@ function getPenalties(table) {
   penaltyQuery.find({
     success: function(results) {
       debugger
-      //setRankingData(results);
+      setRankingData(results);
       createTable(results, table);
     },
     error: function(error) {
