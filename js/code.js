@@ -206,51 +206,59 @@ function getPlayerNameFromId(playerId) {
   return {};
 }
 
-function createTable(results, table) {    
-  for (var i = 0; i < results.length; ++i) {
-    var tr = document.createElement('tr');
+function createTable(table) {    
+  results = g_Ranking;
+debugger
+  for (var indexPlayer = 0; indexPlayer < g_Ranking.length; ++indexPlayer) {
+    for (var indexGoal = 0; indexGoal < g_Ranking[indexPlayer].goals.length; ++indexGoal) {
+      var tr = document.createElement('tr');
 
-    var tdLanzador = document.createElement('td');
-    var tdPortero = document.createElement('td');
-    var tdEstado = document.createElement('td');
-    var tdLado_Disparo = document.createElement('td');
-    var tdLado_Portero = document.createElement('td');
-    var tdFecha = document.createElement('td');
-    var tdVideo = document.createElement('td');
-    debugger
-    var textLanzador = document.createTextNode(results[i].get("LanzadorID").get("Name"));    
-    var textPortero = document.createTextNode(results[i].get("PorteroID").get("Name"));
-    var textEstado = document.createTextNode(results[i].get("Estado"));
-    var textLado_Disparo = document.createTextNode(results[i].get("Lado_disparo"));
-    var textLado_Portero = document.createTextNode(results[i].get("Lado_portero"));
-    var fechaRes = results[i].get("Fecha");
-    if (!fechaRes) {
-      fechaRes = "";
+      var tdPositionRank = document.createElement('td');
+      var tdLanzador = document.createElement('td');
+      var tdPortero = document.createElement('td');
+      var tdEstado = document.createElement('td');
+      var tdLado_Disparo = document.createElement('td');
+      var tdLado_Portero = document.createElement('td');
+      var tdFecha = document.createElement('td');
+      var tdVideo = document.createElement('td');
+      debugger
+      var textPositionRank = document.createTextNode(indexPlayer + 1); //Starting in 0
+      var textLanzador = document.createTextNode(g_Ranking[indexPlayer].name);    
+      var textPortero = document.createTextNode(g_Ranking[indexPlayer].goals[indexGoal].get("PorteroID").get("Name"));
+      var textEstado = document.createTextNode(g_Ranking[indexPlayer].goals[indexGoal].get("Estado"));
+      var textLado_Disparo = document.createTextNode(g_Ranking[indexPlayer].goals[indexGoal].get("Lado_disparo"));
+      var textLado_Portero = document.createTextNode(g_Ranking[indexPlayer].goals[indexGoal].get("Lado_portero"));
+      var fechaRes = g_Ranking[indexPlayer].goals[indexGoal].get("Fecha");
+      if (!fechaRes) {
+        fechaRes = "";
+      }
+      var textFecha = document.createTextNode(fechaRes);
+      var videoRes = g_Ranking[indexPlayer].goals[indexGoal].get("Video");
+      if (!videoRes) {
+        videoRes = "";
+      }
+      var textVideo = document.createTextNode(videoRes);
+
+      tdPositionRank.appendChild(textPositionRank);
+      tdLanzador.appendChild(textLanzador);
+      tdPortero.appendChild(textPortero);
+      tdEstado.appendChild(textEstado);
+      tdLado_Disparo.appendChild(textLado_Disparo);
+      tdLado_Portero.appendChild(textLado_Portero);
+      tdFecha.appendChild(textFecha);
+      tdVideo.appendChild(textVideo);
+
+      tr.appendChild(tdPositionRank);
+      tr.appendChild(tdLanzador);
+      tr.appendChild(tdPortero);
+      tr.appendChild(tdEstado);
+      tr.appendChild(tdLado_Disparo);
+      tr.appendChild(tdLado_Portero);
+      tr.appendChild(tdFecha);
+      tr.appendChild(tdVideo);      
+
+      table.appendChild(tr);
     }
-    var textFecha = document.createTextNode(fechaRes);
-    var videoRes = results[i].get("Video");
-    if (!videoRes) {
-      videoRes = "";
-    }
-    var textVideo = document.createTextNode(videoRes);
-
-    tdLanzador.appendChild(textLanzador);
-    tdPortero.appendChild(textPortero);
-    tdEstado.appendChild(textEstado);
-    tdLado_Disparo.appendChild(textLado_Disparo);
-    tdLado_Portero.appendChild(textLado_Portero);
-    tdFecha.appendChild(textFecha);
-    tdVideo.appendChild(textVideo);
-
-    tr.appendChild(tdLanzador);
-    tr.appendChild(tdPortero);
-    tr.appendChild(tdEstado);
-    tr.appendChild(tdLado_Disparo);
-    tr.appendChild(tdLado_Portero);
-    tr.appendChild(tdFecha);
-    tr.appendChild(tdVideo);      
-
-    table.appendChild(tr);
   }
 }
 
@@ -264,7 +272,6 @@ function getRankingPlayer(namePlayer) {
 }
 
 function setRankingData(results) {
-  debugger
 
   for (var i = 0; i < results.length; ++i) {
     var nameStriker = results[i].get("LanzadorID").get("Name");
@@ -282,7 +289,27 @@ function setRankingData(results) {
       g_Ranking.push(obj);
     }
 
+
   }
+
+  //Order results
+  debugger
+
+  function compare(objA, objB) {
+    debugger
+    console.log('ordenando')
+    var valueA, valueB;
+    valueA = objA.goals.length;
+    valueB = objB.goals.length;
+    if (valueA < valueB)
+      return 1
+    else if (valueA > valueB)
+      return -1
+    else
+      return 0
+  }
+
+  g_Ranking.sort(compare);
 }
 
 function getPenalties(table) {
@@ -292,9 +319,8 @@ function getPenalties(table) {
   penaltyQuery.include("PorteroID");
   penaltyQuery.find({
     success: function(results) {
-      debugger
       setRankingData(results);
-      createTable(results, table);
+      createTable(table);
     },
     error: function(error) {
       alert("Error: " + error.code + " " + error.message);
