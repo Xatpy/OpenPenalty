@@ -8,8 +8,8 @@
 
 //Parse --> Settings --> Keys
 function initParse(){
-  var applicationID = "key";
-  var javascriptKey = "key";
+  var applicationID = "your_key";
+  var javascriptKey = "your_key";
   Parse.initialize(applicationID, javascriptKey);
 }
 
@@ -239,7 +239,12 @@ debugger
       }
       var textVideo = document.createTextNode(videoRes);
 
-      tdPositionRank.appendChild(textPositionRank);
+      if (indexGoal === 0) {
+        tdPositionRank.appendChild(textPositionRank);
+        var att = document.createAttribute("rowspan");
+        att.value = g_Ranking[indexPlayer].goals.length;
+        tdPositionRank.setAttributeNode(att);
+      }
       tdLanzador.appendChild(textLanzador);
       tdPortero.appendChild(textPortero);
       tdEstado.appendChild(textEstado);
