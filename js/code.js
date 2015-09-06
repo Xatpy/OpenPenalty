@@ -213,7 +213,9 @@ debugger
     for (var indexGoal = 0; indexGoal < g_Ranking[indexPlayer].goals.length; ++indexGoal) {
       var tr = document.createElement('tr');
 
-      var tdPositionRank = document.createElement('td');
+      if (indexGoal === 0) {
+        var tdPositionRank = document.createElement('td');
+      }
       var tdLanzador = document.createElement('td');
       var tdPortero = document.createElement('td');
       var tdEstado = document.createElement('td');
@@ -253,7 +255,9 @@ debugger
       tdFecha.appendChild(textFecha);
       tdVideo.appendChild(textVideo);
 
-      tr.appendChild(tdPositionRank);
+      if (indexGoal === 0) {
+        tr.appendChild(tdPositionRank);
+      }
       tr.appendChild(tdLanzador);
       tr.appendChild(tdPortero);
       tr.appendChild(tdEstado);
