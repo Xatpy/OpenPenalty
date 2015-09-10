@@ -41,7 +41,7 @@
     <div class="jumbotron">
       <h1>::: OpenPenalty :::</h1>
 
-      <h2>Consulta penalty</h2>
+      <h2>Registrar penalty</h2>
     </div>
 
     <br />
@@ -100,67 +100,78 @@
     <br />
     <br />
 
-    <form class="form-horizontal">
-      <fieldset>
-        <legend>Equipo 1 - Lanzador</legend>
-      </fieldset>
+    <div class="well bs-component">
+      <form class="form-horizontal">
+        <fieldset>
+          <legend>Equipo 1 - Lanzador</legend>
+        </fieldset>
 
-      <div class="form-group">
-        <label for="inputEmail" class="col-lg-1 control-label">Equipo</label>
-        <div class="col-lg-3">
-          <select id="comboTeam_1" onchange="team1_changed()" class="form-control"></select>
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-1 control-label">Equipo</label>
+          <div class="col-lg-3">
+            <select id="comboTeam_1" onchange="team1_changed()" class="form-control"></select>
+          </div>
+          <label for="inputEmail" class="col-lg-1 control-label">Jugador</label>
+          <div class="col-lg-3">
+            <select id="comboTeam_1" onchange="team1_changed()" class="form-control"></select>
+          </div>
+          <label for="inputEmail" class="col-lg-1 control-label">Lado</label>
+          <div class="col-lg-3">
+            <select id="comboTeam_1" onchange="team1_changed()" class="form-control"></select>
+          </div>
         </div>
-        <label for="inputEmail" class="col-lg-1 control-label">Jugador</label>
-        <div class="col-lg-3">
-          <select id="comboTeam_1" onchange="team1_changed()" class="form-control"></select>
-        </div>
-        <label for="inputEmail" class="col-lg-1 control-label">Lado</label>
-        <div class="col-lg-3">
-          <select id="comboTeam_1" onchange="team1_changed()" class="form-control"></select>
-        </div>
-      </div>
 
-      <fieldset>
-        <legend>Equipo 2 - Portero</legend>
-      </fieldset>
+        <fieldset>
+          <legend>Equipo 2 - Portero</legend>
+        </fieldset>
 
-      <div class="form-group">
-        <label for="inputEmail" class="col-lg-1 control-label">Equipo</label>
-        <div class="col-lg-3">
-          <select id="comboTeam_1" onchange="team1_changed()" class="form-control"></select>
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-1 control-label">Equipo</label>
+          <div class="col-lg-3">
+            <select id="comboTeam_1" onchange="team1_changed()" class="form-control"></select>
+          </div>
+          <label for="inputEmail" class="col-lg-1 control-label">Portero</label>
+          <div class="col-lg-3">
+            <select id="comboTeam_1" onchange="team1_changed()" class="form-control"></select>
+          </div>
+          <label for="inputEmail" class="col-lg-1 control-label">Lado</label>
+          <div class="col-lg-3">
+            <select id="comboTeam_1" onchange="team1_changed()" class="form-control"></select>
+          </div>
         </div>
-        <label for="inputEmail" class="col-lg-1 control-label">Jugador</label>
-        <div class="col-lg-3">
-          <select id="comboTeam_1" onchange="team1_changed()" class="form-control"></select>
-        </div>
-        <label for="inputEmail" class="col-lg-1 control-label">Lado</label>
-        <div class="col-lg-3">
-          <select id="comboTeam_1" onchange="team1_changed()" class="form-control"></select>
-        </div>
-      </div>
 
-      <fieldset>
-        <legend>Datos extra</legend>
-      </fieldset>
-      <div class="form-group">
-        <label for="inputEmail" class="col-lg-2 control-label">Fecha</label>
-        <div class="col-lg-3">
-          <input class="form-control" id="focusedInput" type="text">
+        <fieldset>
+          <legend>Resultado</legend>
+        </fieldset>
+        <div class="form-group">
+          <div class="col-lg-3 col-lg-offset-4">
+            <select id="comboTeam_1" onchange="team1_changed()" class="form-control"></select>
+          </div>
         </div>
-        <label for="inputEmail" class="col-lg-2 control-label">Video URL:</label>
-        <div class="col-lg-3">
-          <input class="form-control col-lg-3" id="focusedInput" type="text">
-        </div>
-      </div>
 
-      <div class="form-group">
-        <div class="col-lg-7 col-lg-offset-5">
-          <button type="submit" class="btn btn-primary btn-lg">Guardar penalty</button>
+        <fieldset>
+          <legend>Datos extra</legend>
+        </fieldset>
+        <div class="form-group">
+          <label for="inputEmail" class="col-lg-2 control-label">Fecha</label>
+          <div class="col-lg-3">
+            <input class="form-control" id="focusedInput" type="text">
+          </div>
+          <label for="inputEmail" class="col-lg-2 control-label">Video URL:</label>
+          <div class="col-lg-3">
+            <input class="form-control col-lg-3" id="focusedInput" type="text">
+          </div>
         </div>
-      </div>
 
-      <div>
-    </form>
+        <div class="form-group">
+          <div class="col-lg-7 col-lg-offset-4">
+            <button type="submit" class="btn btn-primary btn-lg">Guardar penalty</button>
+          </div>
+        </div>
+
+        <div>
+      </form>
+    </div>
 
   </div>
 
