@@ -39,35 +39,38 @@
   </div>
   <br />
   <div class="container">
-    <div class="jumbotron">
-      <h1>::: OpenPenalty :::</h1>
 
-      <h2>Consulta penalty</h2>
+    <div class="jumbotron" style="text-align: center">
+      <h1>Registrar jugadores / equipos</h1>
     </div>
 
-    <div>
-      <h2>Registrar jugador</h2>
-      <label>Equipo:</label>
-      <select id="comboTeam"></select>
-      <br>
-      <label for="namePlayer">Nombre:</label> 
-      <input type="text" id="namePlayer"> 
-      <br>
-      <label>Pie:</label>
-      <select id="comboPie">
-        <option>Diestro</option>
-        <option>Zurdo</option>
-      </select>
-      <br>
-      <label>Position:</label>
-      <select id="comboPosition">
-        <option>Delantero</option>
-        <option>Portero</option>
-        <option>Defensa</option>
-        <option>Centrocampista</option>
-      </select>
-      <br>
-      <button onclick="registrarJugador()">Registrar jugador</button>
+    <div class="well bs-component">
+      <form class="form-horizontal">
+        <fieldset>
+          <legend>Registrar jugador</legend>
+        </fieldset>
+        <label>Equipo:</label>
+        <select id="comboTeam"></select>
+        <br>
+        <label for="namePlayer">Nombre:</label> 
+        <input type="text" id="namePlayer"> 
+        <br>
+        <label>Pie:</label>
+        <select id="comboPie">
+          <option>Diestro</option>
+          <option>Zurdo</option>
+        </select>
+        <br>
+        <label>Position:</label>
+        <select id="comboPosition">
+          <option>Delantero</option>
+          <option>Portero</option>
+          <option>Defensa</option>
+          <option>Centrocampista</option>
+        </select>
+        <br>
+        <button onclick="registrarJugador()">Registrar jugador</button>
+      </form>
     </div>
 
 
