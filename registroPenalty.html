@@ -44,62 +44,6 @@
       <h2>Registrar penalty</h2>
     </div>
 
-    <br />
-
-    <div class="form-horizontal">
-      <h2>Equipo 1 - Lanzador</h2>
-      <select id="comboTeam_1" onchange="team1_changed()">
-      </select>
-      <select id="comboPlayers_1" onchange="striker_changed()">
-      </select>
-      <select id="ladoDisparo">
-        <option>Izquierdo</option>
-        <option>Derecho</option>
-        <option>Centro</option>
-      </select>
-    </div>
-
-    <div>
-      <h2>Equipo 2 - Portero</h2>
-      <select id="comboTeam_2" onchange="team2_changed()">
-      </select>
-      <span></span>
-      <select id="comboPlayers_2">
-      </select>
-      <select id="ladoPortero">
-        <option>Izquierdo</option>
-        <option>Derecho</option>
-        <option>Centro</option>
-      </select>
-    </div>
-
-    <div>
-      <h2>Resultado</h2>
-      <select id="resultadoPenalty">
-        <option>Gol</option>
-        <option>Parado</option>
-        <option>Fuera</option>
-      </select>
-    </div>
-
-    <div>
-      <h2>Datos extra</h2>
-      <label>Fecha:</label>
-      <input type="text" id="fecha"></input>
-      <br />
-      <label>Video URL:</label>
-      <input type="text" id="videoURL"></input>
-    </div>
-
-    <br/ >
-    <div>
-      <button onclick="registrarPenalty()">Guardar penalty</button>
-    </div>
-
-    <br />
-    <br />
-    <br />
-
     <div class="well bs-component">
       <form class="form-horizontal">
         <fieldset>
@@ -113,11 +57,15 @@
           </div>
           <label for="inputEmail" class="col-lg-1 control-label">Jugador</label>
           <div class="col-lg-3">
-            <select id="comboTeam_1" onchange="team1_changed()" class="form-control"></select>
+            <select id="comboPlayers_1" onchange="striker_changed()" class="form-control"></select>
           </div>
           <label for="inputEmail" class="col-lg-1 control-label">Lado</label>
           <div class="col-lg-3">
-            <select id="comboTeam_1" onchange="team1_changed()" class="form-control"></select>
+            <select id="ladoDisparo" class="form-control">
+              <option>Izquierdo</option>
+              <option>Derecho</option>
+              <option>Centro</option>
+            </select>
           </div>
         </div>
 
@@ -128,15 +76,19 @@
         <div class="form-group">
           <label for="inputEmail" class="col-lg-1 control-label">Equipo</label>
           <div class="col-lg-3">
-            <select id="comboTeam_1" onchange="team1_changed()" class="form-control"></select>
+            <select id="comboTeam_2" onchange="team2_changed()" class="form-control"></select>
           </div>
           <label for="inputEmail" class="col-lg-1 control-label">Portero</label>
           <div class="col-lg-3">
-            <select id="comboTeam_1" onchange="team1_changed()" class="form-control"></select>
+            <select id="comboPlayers_2" onchange="team2_changed()" class="form-control"></select>
           </div>
           <label for="inputEmail" class="col-lg-1 control-label">Lado</label>
           <div class="col-lg-3">
-            <select id="comboTeam_1" onchange="team1_changed()" class="form-control"></select>
+            <select id="ladoPortero" class="form-control">
+              <option>Izquierdo</option>
+              <option>Derecho</option>
+              <option>Centro</option>
+            </select>
           </div>
         </div>
 
@@ -145,7 +97,11 @@
         </fieldset>
         <div class="form-group">
           <div class="col-lg-3 col-lg-offset-4">
-            <select id="comboTeam_1" onchange="team1_changed()" class="form-control"></select>
+            <select id="resultadoPenalty" class="form-control">
+              <option>Gol</option>
+              <option>Parado</option>
+              <option>Fuera</option>
+            </select>
           </div>
         </div>
 
@@ -155,17 +111,19 @@
         <div class="form-group">
           <label for="inputEmail" class="col-lg-2 control-label">Fecha</label>
           <div class="col-lg-3">
-            <input class="form-control" id="focusedInput" type="text">
+            <input class="form-control" id="focusedInput fecha" type="text">
           </div>
           <label for="inputEmail" class="col-lg-2 control-label">Video URL:</label>
           <div class="col-lg-3">
-            <input class="form-control col-lg-3" id="focusedInput" type="text">
+            <input class="form-control col-lg-3" id="focusedInput videoURL" type="text">
           </div>
         </div>
 
+        <hr>
+
         <div class="form-group">
           <div class="col-lg-7 col-lg-offset-4">
-            <button type="submit" class="btn btn-primary btn-lg">Guardar penalty</button>
+            <button type="submit" class="btn btn-primary btn-lg" onclick="registrarPenalty()">Guardar penalty</button>
           </div>
         </div>
 
