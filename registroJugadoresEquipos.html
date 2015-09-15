@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="css/lavish-bootstrap_1.css">
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+
   <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
-  
   <script type="text/javascript" src="./js/code.js"></script>
 
 </head>
@@ -45,6 +45,35 @@
     </div>
 
     <div class="row">
+      <div class="col-lg-12">
+        <div class="well bs-component" >
+         <form class="form-horizontal">
+            <fieldset id="divKeys">
+              <legend>Claves</legend>
+            </fieldset>
+            <div id="hiding">
+              <div class="form-group">
+                <label class="col-lg-2 control-label">ApplicationID</label>
+                <div class="col-lg-3">
+                  <input type="text" id="appID" class="form-control"></input>
+                </div>
+
+                <label class="col-lg-2 control-label">JavascriptKey</label>
+                <div class="col-lg-3">
+                  <input type="text" id="javascriptKey" class="form-control"></input>
+                </div>
+
+                <div class="col-lg-2">
+                  <button class="btn btn-primary btn-lg" onclick="init()">Inicializar</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" >
       <div class="col-lg-6">    
         <div class="well bs-component" >
           <form class="form-horizontal">
@@ -113,7 +142,7 @@
             <div class="form-group">
               <label  for="inputEquipo" class="col-lg-5 control-label">Equipo:</label>
               <div class="col-lg-4">
-                <select id="comboTeam" class="form-control"></select>
+                <input type="text" id="comboTeam" class="form-control"></select>
               </div>
               <br>
             </div>
@@ -146,6 +175,20 @@
     }
 
     init();
+
+    function hideKeysPanel(){
+      var isVisible = $('#hiding').is(':visible');
+
+      if (isVisible) {
+        $("#hiding").hide(1000);
+      } else {
+        $("#hiding").show(1000);
+      }
+    }
+
+    $("#divKeys").click(function(){
+      hideKeysPanel();
+    });
 
 
     function registrarJugador() {

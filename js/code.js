@@ -7,9 +7,16 @@
 // FUNCITONS
 
 //Parse --> Settings --> Keys
-function initParse(){
-  var applicationID = "your_key";
-  var javascriptKey = "your_key";
+function initParse(appID, jsKey){
+  var applicationID ;
+  var javascriptKey ;
+
+  if (appID) {
+    applicationID = appID;
+  }
+  if (jsKey) {
+    javascriptKey = jsKey;
+  }
   Parse.initialize(applicationID, javascriptKey);
 }
 
@@ -212,6 +219,7 @@ debugger
   for (var indexPlayer = 0; indexPlayer < g_Ranking.length; ++indexPlayer) {
     for (var indexGoal = 0; indexGoal < g_Ranking[indexPlayer].goals.length; ++indexGoal) {
       var tr = document.createElement('tr');
+      tr.setAttribute( 'class', 'active' );
 
       if (indexGoal === 0) {
         var tdPositionRank = document.createElement('td');
