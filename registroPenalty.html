@@ -9,6 +9,10 @@
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
   <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.5.0.min.js"></script>
 
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.1/themes/base/jquery-ui.css" />
+  <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+
   <script type="text/javascript" src="./js/code.js"></script>
 </head>
 
@@ -109,7 +113,7 @@
         <div class="form-group">
           <label for="inputEmail" class="col-lg-2 control-label">Fecha</label>
           <div class="col-lg-3">
-            <input class="form-control" id="fecha" type="text">
+            <input type="text" data-role="date" data-inline="true" id="datepicker" class="form-control">
           </div>
           <label for="inputEmail" class="col-lg-2 control-label">Video URL:</label>
           <div class="col-lg-3">
@@ -205,7 +209,10 @@
         return;
       } 
 
-      var fecha = document.getElementById("fecha").value;
+      var fecha = "";
+      if ($('#datepicker').val()) {
+        fecha = $('#datepicker').datepicker({ dateFormat: 'dd-mm-yy' }).val();        
+      }
       var videoURL = document.getElementById("videoURL").value;
 
       var Penalty = Parse.Object.extend("Penalty");
@@ -217,10 +224,13 @@
       penalty.set("Lado_portero", document.getElementById("ladoPortero").value);
 
       if (fecha) {
-        penalty.set("Fecha", document.getElementById("fecha").value);
+        //var arr = fecha.split("/");
+        //fecha = new Date(arr[2],arr[1],arr[0] - 1);
+        fecha = new Date();
+        penalty.set("Fecha", fecha);
       }
       if (videoURL) {
-        penalty.set("Video", document.getElementById("videoURL").value);        
+        penalty.set("Video", videoURL);        
       }
 
       penalty.save(null, {
@@ -228,10 +238,16 @@
             alert('Penalty registrado.');
           },
           error: function(gameScore, error) {
-            alert('Failed to create new object, with error code: ' + error.message);
+            if (error !== undefined && error.message !== undefined && error.message.code !== 100) {
+              alert('Failed to create new object, with error code: ' + error.message);
+            }
           }
         });
     }
+
+    $(function () {
+      $("#datepicker").datepicker();
+    });
 
     init();
 

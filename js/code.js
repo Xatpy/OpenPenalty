@@ -8,8 +8,8 @@
 
 //Parse --> Settings --> Keys
 function initParse(appID, jsKey){
-  var applicationID ;
-  var javascriptKey ;
+  var applicationID = "Rm7uk8PRGV7pJYFZCglVYtnnp6Ln8WTJDF82col6";
+  var javascriptKey = "6g3MfclIfzikxEWUILsCMeQihh9URQ6RQmWbqVYk";
 
   if (appID) {
     applicationID = appID;
@@ -291,6 +291,10 @@ function getRankingPlayer(namePlayer) {
 function setRankingData(results) {
 
   for (var i = 0; i < results.length; ++i) {
+    if ( (results[i].get("LanzadorID") === undefined) || (results[i].get("PorteroID") === undefined) ){
+        console.log("Error getting a penalty.")
+        continue;
+    }
     var nameStriker = results[i].get("LanzadorID").get("Name");
     var nameKeeper = results[i].get("PorteroID").get("Name");
 
