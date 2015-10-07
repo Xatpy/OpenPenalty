@@ -26,4 +26,8 @@ for link in links:
     print link.get_attribute("href")
     link.click()
 
+spans = driver.find_elements_by_class_name('page-navigation-item')
+for span in spans:
+	print span
+
 print "adios"
