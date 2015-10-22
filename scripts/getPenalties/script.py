@@ -29,5 +29,12 @@ for link in links:
 spans = driver.find_elements_by_class_name('page-navigation-item')
 for span in spans:
 	print span
+	
+test = driver.find_element_by_xpath("//*[@data-type=16]")
+if (test):
+	print "si"
+else:
+	print "no"
+
 
 print "adios"
