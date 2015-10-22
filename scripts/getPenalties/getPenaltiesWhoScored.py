@@ -33,40 +33,44 @@ for link in links:
 #element.click()
 
 print "aqui estamos"
-total_pages = driver.find_element_by_class_name('total-pages')
-print total_pages.text
+total_pages_text = driver.find_element_by_class_name('total-pages')
+#print total_pages.text
 
-#spans = driver.find_elements_by_class_name('page-navigation-item')
-#for span in spans:
-	#print span
-	
-test = driver.find_element_by_xpath("//*[@data-type=16]")
-if (test):
-	print "si"
-else:
-	print "no"
+totalPages = int(total_pages_text.text)
+currentPage = 0
+while currentPage < totalPages:
+	currentPage += 1
+	list15 = driver.find_elements_by_xpath("//*[@data-type=15]")
+	contador = 0
+	for el in list15:
+		contador += 1
+		eventText = el.text.upper()
+		if "PENALTY" in eventText:
+			print el.text.upper()
+		#print str(contador) + " - " + el.text
+	print "vamos a por el siguiente"
+	spans = driver.find_elements_by_class_name('page-navigation-item')
+	#for span in spans:
+	spans[2].click()
+		#print span
 
-if 0:
-	elementA = WebDriverWait(driver, 5).until(
-		#EC.presence_of_element_located((By.CLASS_NAME, "//*[@data-type=16]"))
-		EC.presence_of_element_located((By.XPATH, "//*[@data-type=1500]"))
-		#elementA = driver.find_elements_by_xpath("//*[@data-type=16]")
-	)
-	if (elementA):
-		print "siiiii"
-	else:
-		print "nooooo"
-	#debugger('Click on wizards')
-	#elementA.click()
+	#test = driver.find_element_by_xpath("//*[@data-type=16]")
+	#if (test):
+		#print "si"
+	#else:
+		#print "no"
 
-list15 = driver.find_elements_by_xpath("//*[@data-type=15]")
-contador = 0
-for el in list15:
-	contador += 1
-	print str(contador) + " - " + el.text
-list16 = driver.find_elements_by_xpath("//*[@data-type=16]")
-list1500 = driver.find_elements_by_xpath("//*[@data-type=1500]")
-
-
+	#if 0:
+	#	elementA = WebDriverWait(driver, 5).until(
+			#EC.presence_of_element_located((By.CLASS_NAME, "//*[@data-type=16]"))
+	#		EC.presence_of_element_located((By.XPATH, "//*[@data-type=1500]"))
+			#elementA = driver.find_elements_by_xpath("//*[@data-type=16]")
+	#	)
+	#	if (elementA):
+	#		print "siiiii"
+	#	else:
+	#		print "nooooo"
+		#debugger('Click on wizards')
+		#elementA.click()
 
 print "adios"
