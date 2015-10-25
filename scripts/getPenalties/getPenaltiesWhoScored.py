@@ -3,6 +3,16 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 
+SPANISH_TEAMS = ["Atletico Madrid", "Real Madrid"]
+
+def getTeams(title):
+	teams = title.split("-")
+	spanish_match = True
+	for tm in teams:
+		print tm
+		if tm not in SPANISH_TEAMS:
+			return False;
+	return spanish_match
 
 def checkPenalty(list, type):
 	contador = 0
@@ -20,10 +30,9 @@ driver.maximize_window()
 driver.maximize_window()
 driver.delete_all_cookies()
 
-print "hola"
+print "start"
 
-
-urlList = ["http://www.whoscored.com/Matches/985501/Live", "http://www.whoscored.com/Matches/985519/Live"]
+urlList = ["http://www.whoscored.com/Matches/985501/Live", "http://www.whoscored.com/Matches/985519/Live", "http://www.whoscored.com/Matches/985563/Live"]
 
 #url = "http://www.whoscored.com/Matches/985501/Live"
 #url = "http://www.whoscored.com/Matches/985519/Live"
@@ -32,6 +41,8 @@ for url in urlList:
 	driver.get(url)
 
 	print "que pasa" + url
+
+	getTeams(driver.title)
 
 	links = driver.find_elements_by_partial_link_text('Match Commentary')
 	for link in links:
