@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 import time
 
 SPANISH_TEAMS = ["Atletico Madrid", "Real Madrid", "Barcelona", "Valencia", "Sevilla",
-				 "Villareal", "Athletic Bilbao", "Celta Vigo", "Malaga", "Espanyol", "Rayo Vallecano", "Real Sociedad",
+				 "Villareal", "Villarreal", "Athletic Club", "Athletic Bilbao", "Celta Vigo", "Malaga", "Espanyol", "Rayo Vallecano", "Real Sociedad",
 				 "Elche", "Levante", "Getafe", "Deportivo La Coruna", "Granada", "Eibar", "Almeria", "Cordoba",
 				 "Real Betis"]
 
@@ -13,13 +13,11 @@ def out(message, file):
 	file.write(message.encode('utf8') + '\n')
 	print message
 
-
 def getTeams(title, f):
 	teams = title.split("-")
 	spanish_match = True
 	for tm in teams:
 		if tm not in SPANISH_TEAMS:
-			#print tm + " not Spanish.---"
 			message = tm + " not Spanish.---"
 			out (message, f)
 			return False;
@@ -31,12 +29,9 @@ def checkPenalty(list, type, f):
 		contador += 1
 		if el.text:
 			eventText = el.text.replace('\n',' ')
-			#eventText = el.text.upper()
 			if "PENALTY" in eventText.upper():
-				#print "\t" + type + " - " + eventText
 				message = "\t" + type + " - " + eventText
-				out(message,f)
-		#print str(contador) + " - " + el.text
+				out(message, f)
 
 ### ----- Driver setup ------
 driver = webdriver.Firefox()
@@ -52,10 +47,9 @@ with open('outFile.txt', 'w+') as f:
 
 	baseURL = "http://www.whoscored.com/Matches/"
 
-
+	urlList = []
 	#urlList = ["http://www.whoscored.com/Matches/985501/Live", "http://www.whoscored.com/Matches/985519/Live", "http://www.whoscored.com/Matches/985563/Live",
 	#		   "http://www.whoscored.com/Matches/985555/Live", "http://www.whoscored.com/Matches/985553/Live"]
-	urlList = []
 	#url = "http://www.whoscored.com/Matches/985501/Live"
 
 	#build url list
@@ -68,7 +62,6 @@ with open('outFile.txt', 'w+') as f:
 
 	for url in urlList:
 		driver.get(url)
-		#print "que pasa" + url
 
 		spanishMatch = getTeams(driver.title, f)
 
@@ -81,7 +74,6 @@ with open('outFile.txt', 'w+') as f:
 				#print link.get_attribute("href")
 				link.click()
 
-			#print "aqui estamos"
 			total_pages_text = driver.find_element_by_class_name('total-pages')
 
 			totalPages = int(total_pages_text.text)
