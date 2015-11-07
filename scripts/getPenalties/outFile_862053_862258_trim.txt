@@ -1,0 +1,51 @@
+:::OpenPenalty: Start script at::: Sat Nov  7 14:26:53 2015
+	FAIL - 35 Luis Alberto attempt saved. (Low left, Box-centre, Penalty, Big Chance, Right footed)	# Match: Malaga-Athletic Bilbao | URL: http://www.whoscored.com/Matches/862055/Live
+	FAIL - 45 Daniel Parejo attempt saved. (Low left, Box-centre, Big Chance, Penalty, Right footed)	# Match: Valencia-Malaga | URL: http://www.whoscored.com/Matches/862062/Live
+	GOAL - 90+4 GOAL! Isaac Cuenca scores. (High left, Box-centre, Big Chance, Penalty, Right footed)	# Match: Deportivo La Coruna-Rayo Vallecano | URL: http://www.whoscored.com/Matches/862068/Live
+	GOAL - 91 GOAL! Sergio García scores. (Low right, Box-centre, Penalty, Big Chance, Right footed)	# Match: Valencia-Espanyol | URL: http://www.whoscored.com/Matches/862072/Live
+	GOAL - 44 GOAL! Carlos Bacca scores. (Low left, Box-centre, Penalty, Big Chance, Right footed)	# Match: Sevilla-Getafe | URL: http://www.whoscored.com/Matches/862073/Live
+	GOAL - 26 GOAL! Cristiano Ronaldo scores. (Low left, Box-centre, Penalty, Big Chance, Right footed)	# Match: Real Madrid-Atletico Madrid | URL: http://www.whoscored.com/Matches/862076/Live
+	GOAL - 91 GOAL! Alberto Bueno scores. (Low left, Box-centre, Penalty, Big Chance, Right footed)	# Match: Rayo Vallecano-Elche | URL: http://www.whoscored.com/Matches/862078/Live
+	FAIL - 89 Haris Medunjanin attempt saved. (Low right, Box-centre, Penalty, Big Chance, Left footed)	# Match: Celta Vigo-Deportivo La Coruna | URL: http://www.whoscored.com/Matches/862082/Live
+	GOAL - 80 GOAL! Cristiano Ronaldo scores. (Low left, Box-centre, Penalty, Big Chance, Right footed)	# Match: Real Madrid-Elche | URL: http://www.whoscored.com/Matches/862085/Live
+	GOAL - 28 GOAL! Cristiano Ronaldo scores. (High right, Box-centre, Big Chance, Penalty, Right footed)	# Match: Real Madrid-Elche | URL: http://www.whoscored.com/Matches/862085/Live
+	GOAL - 15 GOAL! Edu Albácar scores. (High right, Box-centre, Penalty, Big Chance, Left footed)	# Match: Real Madrid-Elche | URL: http://www.whoscored.com/Matches/862085/Live
+	GOAL - 72 GOAL! Rodrigo scores. (Low centre, Box-centre, Penalty, Big Chance, Left footed)	# Match: Getafe-Valencia | URL: http://www.whoscored.com/Matches/862086/Live
+	GOAL - 83 GOAL! Raúl García scores. (Low left, Box-centre, Penalty, Big Chance, Right footed)	# Match: Atletico Madrid-Sevilla | URL: http://www.whoscored.com/Matches/862087/Live
+	GOAL - 88 GOAL! Carlos Bacca scores. (Low right, Box-centre, Penalty, Big Chance, Right footed)	# Match: Cordoba-Sevilla | URL: http://www.whoscored.com/Matches/862089/Live
+	GOAL - 53 GOAL! Nolito scores. (Low left, Box-centre, Penalty, Big Chance, Right footed)	# Match: Atletico Madrid-Celta Vigo | URL: http://www.whoscored.com/Matches/862095/Live
+	GOAL - 51 GOAL! Haris Medunjanin scores. (Low left, Box-centre, Big Chance, Penalty, Left footed)	# Match: Deportivo La Coruna-Real Madrid | URL: http://www.whoscored.com/Matches/862098/Live
+	GOAL - 42 GOAL! Youssef El-Arabi scores. (Low right, Box-centre, Penalty, Big Chance, Right footed)	# Match: Sevilla-Granada | URL: http://www.whoscored.com/Matches/862105/Live
+	GOAL - 86 GOAL! Cristhian Stuani scores. (High right, Box-centre, Penalty, Big Chance, Right footed)	# Match: Elche-Espanyol | URL: http://www.whoscored.com/Matches/862109/Live
+	FAIL - 12 Ivan Cavaleiro attempt saved. (Low right, Box-centre, Penalty, Big Chance, Right footed)	# Match: Deportivo La Coruna-Malaga | URL: http://www.whoscored.com/Matches/862117/Live
+	GOAL - 37 GOAL! Mikel Arruabarrena scores. (Low left, Box-centre, Penalty, Big Chance, Right footed)	# Match: Rayo Vallecano-Eibar | URL: http://www.whoscored.com/Matches/862128/Live
+	FAIL - 46 Guillherme Siqueira attempt saved. (Low left, Box-centre, Penalty, Big Chance, Left footed)	# Match: Valencia-Atletico Madrid | URL: http://www.whoscored.com/Matches/862129/Live
+	FAIL - 68 Carlos Bacca attempt saved. (Low left, Box-centre, Big Chance, Penalty, Right footed)	# Match: Sevilla-Deportivo La Coruna | URL: http://www.whoscored.com/Matches/862132/Live
+	FAIL - 17 Fede Cartabia attempt saved. (Low left, Box-centre, Penalty, Big Chance, Left footed)	# Match: Cordoba-Deportivo La Coruna | URL: http://www.whoscored.com/Matches/862134/Live
+	GOAL - 37 GOAL! Verza scores. (Low left, Box-centre, Big Chance, Penalty, Right footed)	# Match: Almeria-Elche | URL: http://www.whoscored.com/Matches/862135/Live
+	GOAL - 36 GOAL! Cristiano Ronaldo scores. (Low right, Box-centre, Big Chance, Penalty, Right footed)	# Match: Real Madrid-Celta Vigo | URL: http://www.whoscored.com/Matches/862145/Live
+	GOAL - 80 GOAL! Vitorino Antunes scores. (Low left, Box-centre, Big Chance, Penalty, Left footed)	# Match: Malaga-Granada | URL: http://www.whoscored.com/Matches/862150/Live
+	GOAL - 31 GOAL! Nordin Amrabat scores. (Low left, Box-centre, Penalty, Big Chance, Right footed)	# Match: Cordoba-Malaga | URL: http://www.whoscored.com/Matches/862153/Live
+	GOAL - 89 GOAL! Nordin Amrabat scores. (Low right, Box-centre, Penalty, Big Chance, Right footed)	# Match: Malaga-Eibar | URL: http://www.whoscored.com/Matches/862158/Live
+	GOAL - 63 GOAL! Lombán scores. (Low left, Box-centre, Big Chance, Penalty, Right footed)	# Match: Elche-Cordoba | URL: http://www.whoscored.com/Matches/862167/Live
+	FAIL - 6 Jonathas attempt saved. (Low centre, Box-centre, Penalty, Big Chance, Right footed)	# Match: Elche-Cordoba | URL: http://www.whoscored.com/Matches/862167/Live
+	GOAL - 6 GOAL! Aduriz scores. (Low centre, Box-centre, Penalty, Big Chance, Right footed)	# Match: Athletic Bilbao-Celta Vigo | URL: http://www.whoscored.com/Matches/862171/Live
+	FAIL - 62 Verza attempt saved. (Low right, Box-centre, Penalty, Big Chance, Right footed)	# Match: Almeria-Real Madrid | URL: http://www.whoscored.com/Matches/862172/Live
+	GOAL - 13 GOAL! Cristiano Ronaldo scores. (Low right, Box-centre, Penalty, Big Chance, Right footed)	# Match: Levante-Real Madrid | URL: http://www.whoscored.com/Matches/862174/Live
+	GOAL - 53 GOAL! Raúl García scores. (Low right, Box-centre, Penalty, Big Chance, Right footed)	# Match: Athletic Bilbao-Atletico Madrid | URL: http://www.whoscored.com/Matches/862184/Live
+	GOAL - 90+2 GOAL! Andreas Ivanschitz scores. (High left, Box-centre, Penalty, Big Chance, Left footed)	# Match: Levante-Real Sociedad | URL: http://www.whoscored.com/Matches/862188/Live
+	GOAL - 83 GOAL! Cristiano Ronaldo scores. (Low left, Box-centre, Penalty, Big Chance, Right footed)	# Match: Eibar-Real Madrid | URL: http://www.whoscored.com/Matches/862189/Live
+	GOAL - 90+2 GOAL! Carlos Bacca scores. (Low right, Box-centre, Big Chance, Penalty, Right footed)	# Match: Sevilla-Villarreal | URL: http://www.whoscored.com/Matches/862198/Live
+	GOAL - 35 GOAL! Cristiano Ronaldo scores. (Low right, Box-centre, Big Chance, Penalty, Right footed)	# Match: Real Madrid-Barcelona | URL: http://www.whoscored.com/Matches/862204/Live
+	GOAL - 49 GOAL! Nordin Amrabat scores. (Low left, Box-centre, Big Chance, Penalty, Right footed)	# Match: Malaga-Rayo Vallecano | URL: http://www.whoscored.com/Matches/862206/Live
+	FAIL - 45+1 Cristiano Ronaldo attempt saved. (Low left, Box-centre, Penalty, Big Chance, Right footed)	# Match: Real Madrid-Valencia | URL: http://www.whoscored.com/Matches/862214/Live
+	GOAL - 58 GOAL! Santi Mina scores. (Low left, Box-centre, Big Chance, Penalty, Right footed)	# Match: Celta Vigo-Sevilla | URL: http://www.whoscored.com/Matches/862216/Live
+	GOAL - 40 GOAL! Daniel Parejo scores. (Low left, Box-centre, Penalty, Big Chance, Right footed)	# Match: Valencia-Granada | URL: http://www.whoscored.com/Matches/862219/Live
+	GOAL - 68 GOAL! Verza scores. (Low centre, Box-centre, Penalty, Big Chance, Right footed)	# Match: Almeria-Eibar | URL: http://www.whoscored.com/Matches/862223/Live
+	GOAL - 52 GOAL! Aduriz scores. (Low right, Box-centre, Penalty, Big Chance, Right footed)	# Match: Athletic Bilbao-Real Sociedad | URL: http://www.whoscored.com/Matches/862231/Live
+	GOAL - 25 GOAL! Aduriz scores. (Low centre, Box-centre, Penalty, Big Chance, Right footed)	# Match: Athletic Bilbao-Villarreal | URL: http://www.whoscored.com/Matches/862240/Live
+	FAIL - 68 Aarón attempt saved. (Low centre, Box-centre, Big Chance, Penalty, Right footed)	# Match: Levante-Elche | URL: http://www.whoscored.com/Matches/862242/Live
+	GOAL - 34 GOAL! Cristiano Ronaldo scores. (Low centre, Box-centre, Big Chance, Penalty, Right footed)	# Match: Real Madrid-Getafe | URL: http://www.whoscored.com/Matches/862252/Live
+	GOAL - 23 GOAL! Sergio García scores. (Low right, Box-centre, Penalty, Big Chance, Right footed)	# Match: Celta Vigo-Espanyol | URL: http://www.whoscored.com/Matches/862254/Live
+	GOAL - 85 GOAL! Neymar scores. (Low right, Box-centre, Big Chance, Penalty, Right footed)	# Match: Cordoba-Barcelona | URL: http://www.whoscored.com/Matches/862255/Live
+	GOAL - 14 GOAL! Youssef El-Arabi scores. (Low right, Box-centre, Penalty, Big Chance, Right footed)	# Match: Getafe-Granada | URL: http://www.whoscored.com/Matches/862257/Live

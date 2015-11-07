@@ -1,0 +1,97 @@
+:::OpenPenalty: Start script at::: Mon Oct 26 00:04:42 2015
+Villarreal not Spanish.---
+# Match: Levante-Villarreal | URL: http://www.whoscored.com/Matches/862053/Live
+# Match: Rayo Vallecano-Atletico Madrid | URL: http://www.whoscored.com/Matches/862054/Live
+Athletic Bilbao not Spanish.---
+# Match: Malaga-Athletic Bilbao | URL: http://www.whoscored.com/Matches/862055/Live
+# Match: Celta Vigo-Getafe | URL: http://www.whoscored.com/Matches/862056/Live
+# Match: Eibar-Real Sociedad | URL: http://www.whoscored.com/Matches/862057/Live
+# Match: Granada-Deportivo La Coruna | URL: http://www.whoscored.com/Matches/862058/Live
+# Match: Barcelona-Elche | URL: http://www.whoscored.com/Matches/862059/Live
+# Match: Real Madrid-Cordoba | URL: http://www.whoscored.com/Matches/862060/Live
+# Match: Almeria-Espanyol | URL: http://www.whoscored.com/Matches/862061/Live
+# Match: Valencia-Malaga | URL: http://www.whoscored.com/Matches/862062/Live
+	FAIL - 45 Daniel Parejo attempt saved. (Low left, Box-centre, Big Chance, Penalty, Right footed)
+# Match: Espanyol-Sevilla | URL: http://www.whoscored.com/Matches/862063/Live
+# Match: Getafe-Almeria | URL: http://www.whoscored.com/Matches/862064/Live
+# Match: Cordoba-Celta Vigo | URL: http://www.whoscored.com/Matches/862065/Live
+# Match: Real Sociedad-Real Madrid | URL: http://www.whoscored.com/Matches/862066/Live
+# Match: Atletico Madrid-Eibar | URL: http://www.whoscored.com/Matches/862067/Live
+# Match: Deportivo La Coruna-Rayo Vallecano | URL: http://www.whoscored.com/Matches/862068/Live
+	GOAL - 90+4 GOAL! Isaac Cuenca scores. (High left, Box-centre, Big Chance, Penalty, Right footed)
+# Match: Elche-Granada | URL: http://www.whoscored.com/Matches/862069/Live
+Villarreal not Spanish.---
+# Match: Villarreal-Barcelona | URL: http://www.whoscored.com/Matches/862070/Live
+Athletic Bilbao not Spanish.---
+# Match: Athletic Bilbao-Levante | URL: http://www.whoscored.com/Matches/862071/Live
+# Match: Valencia-Espanyol | URL: http://www.whoscored.com/Matches/862072/Live
+	GOAL - 91 GOAL! Sergio García scores. (Low right, Box-centre, Penalty, Big Chance, Right footed)
+# Match: Sevilla-Getafe | URL: http://www.whoscored.com/Matches/862073/Live
+	GOAL - 44 GOAL! Carlos Bacca scores. (Low left, Box-centre, Penalty, Big Chance, Right footed)
+# Match: Almeria-Cordoba | URL: http://www.whoscored.com/Matches/862074/Live
+# Match: Celta Vigo-Real Sociedad | URL: http://www.whoscored.com/Matches/862075/Live
+# Match: Real Madrid-Atletico Madrid | URL: http://www.whoscored.com/Matches/862076/Live
+	GOAL - 26 GOAL! Cristiano Ronaldo scores. (Low left, Box-centre, Penalty, Big Chance, Right footed)
+# Match: Eibar-Deportivo La Coruna | URL: http://www.whoscored.com/Matches/862077/Live
+# Match: Rayo Vallecano-Elche | URL: http://www.whoscored.com/Matches/862078/Live
+	GOAL - 91 GOAL! Alberto Bueno scores. (Low left, Box-centre, Penalty, Big Chance, Right footed)
+Villarreal not Spanish.---
+# Match: Granada-Villarreal | URL: http://www.whoscored.com/Matches/862079/Live
+Athletic Bilbao not Spanish.---
+# Match: Barcelona-Athletic Bilbao | URL: http://www.whoscored.com/Matches/862080/Live
+# Match: Cordoba-Espanyol | URL: http://www.whoscored.com/Matches/862081/Live
+# Match: Celta Vigo-Deportivo La Coruna | URL: http://www.whoscored.com/Matches/862082/Live
+	FAIL - 89 Haris Medunjanin attempt saved. (Low right, Box-centre, Penalty, Big Chance, Left footed)
+# Match: Espanyol-Malaga | URL: http://www.whoscored.com/Matches/862083/Live
+# Match: Real Sociedad-Valencia | URL: http://www.whoscored.com/Matches/862084/Live
+# Match: Real Madrid-Elche | URL: http://www.whoscored.com/Matches/862085/Live
+	GOAL - 80 GOAL! Cristiano Ronaldo scores. (Low left, Box-centre, Penalty, Big Chance, Right footed)
+	GOAL - 28 GOAL! Cristiano Ronaldo scores. (High right, Box-centre, Big Chance, Penalty, Right footed)
+	GOAL - 15 GOAL! Edu Albácar scores. (High right, Box-centre, Penalty, Big Chance, Left footed)
+# Match: Getafe-Valencia | URL: http://www.whoscored.com/Matches/862086/Live
+	GOAL - 72 GOAL! Rodrigo scores. (Low centre, Box-centre, Penalty, Big Chance, Left footed)
+# Match: Atletico Madrid-Sevilla | URL: http://www.whoscored.com/Matches/862087/Live
+	GOAL - 83 GOAL! Raúl García scores. (Low left, Box-centre, Penalty, Big Chance, Right footed)
+Villarreal not Spanish.---
+# Match: Eibar-Villarreal | URL: http://www.whoscored.com/Matches/862088/Live
+# Match: Cordoba-Sevilla | URL: http://www.whoscored.com/Matches/862089/Live
+	GOAL - 88 GOAL! Carlos Bacca scores. (Low right, Box-centre, Penalty, Big Chance, Right footed)
+# Match: Deportivo La Coruna-Almeria | URL: http://www.whoscored.com/Matches/862090/Live
+Athletic Bilbao not Spanish.---
+# Match: Rayo Vallecano-Athletic Bilbao | URL: http://www.whoscored.com/Matches/862091/Live
+# Match: Real Sociedad-Almeria | URL: http://www.whoscored.com/Matches/862092/Live
+# Match: Elche-Celta Vigo | URL: http://www.whoscored.com/Matches/862093/Live
+# Match: Granada-Levante | URL: http://www.whoscored.com/Matches/862094/Live
+# Match: Atletico Madrid-Celta Vigo | URL: http://www.whoscored.com/Matches/862095/Live
+	GOAL - 53 GOAL! Nolito scores. (Low left, Box-centre, Penalty, Big Chance, Right footed)
+Villarreal not Spanish.---
+# Match: Villarreal-Real Madrid | URL: http://www.whoscored.com/Matches/862096/Live
+# Match: Malaga-Barcelona | URL: http://www.whoscored.com/Matches/862097/Live
+# Match: Deportivo La Coruna-Real Madrid | URL: http://www.whoscored.com/Matches/862098/Live
+	GOAL - 51 GOAL! Haris Medunjanin scores. (Low left, Box-centre, Big Chance, Penalty, Left footed)
+# Match: Espanyol-Levante | URL: http://www.whoscored.com/Matches/862099/Live
+# Match: Getafe-Malaga | URL: http://www.whoscored.com/Matches/862100/Live
+# Match: Elche-Eibar | URL: http://www.whoscored.com/Matches/862101/Live
+# Match: Valencia-Barcelona | URL: http://www.whoscored.com/Matches/862102/Live
+# Match: Atletico Madrid-Cordoba | URL: http://www.whoscored.com/Matches/862103/Live
+Villarreal not Spanish.---
+# Match: Villarreal-Rayo Vallecano | URL: http://www.whoscored.com/Matches/862104/Live
+# Match: Sevilla-Granada | URL: http://www.whoscored.com/Matches/862105/Live
+	GOAL - 42 GOAL! Youssef El-Arabi scores. (Low right, Box-centre, Penalty, Big Chance, Right footed)
+# Match: Deportivo La Coruna-Getafe | URL: http://www.whoscored.com/Matches/862106/Live
+Athletic Bilbao not Spanish.---
+# Match: Athletic Bilbao-Granada | URL: http://www.whoscored.com/Matches/862107/Live
+# Match: Almeria-Rayo Vallecano | URL: http://www.whoscored.com/Matches/862108/Live
+# Match: Elche-Espanyol | URL: http://www.whoscored.com/Matches/862109/Live
+	GOAL - 86 GOAL! Cristhian Stuani scores. (High right, Box-centre, Penalty, Big Chance, Right footed)
+# Match: Levante-Barcelona | URL: http://www.whoscored.com/Matches/862110/Live
+Problema al cargar la página not Spanish.---
+# Match: Problema al cargar la página | URL: http://www.whoscored.com/Matches/862111/Live
+Villarreal not Spanish.---
+# Match: Villarreal-Valencia | URL: http://www.whoscored.com/Matches/862112/Live
+# Match: Espanyol-Getafe | URL: http://www.whoscored.com/Matches/862113/Live
+# Match: Malaga-Real Madrid | URL: http://www.whoscored.com/Matches/862114/Live
+# Match: Almeria-Valencia | URL: http://www.whoscored.com/Matches/862256/Live
+# Match: Getafe-Granada | URL: http://www.whoscored.com/Matches/862257/Live
+	GOAL - 14 GOAL! Youssef El-Arabi scores. (Low right, Box-centre, Penalty, Big Chance, Right footed)
+# Match: Malaga-Sevilla | URL: http://www.whoscored.com/Matches/862258/Live
