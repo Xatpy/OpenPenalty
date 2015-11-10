@@ -26,10 +26,10 @@ def out(message, file):
 #          	1 == English
 #			2 == German
 #			3 == Italian
-def getNationalities(title, f):
+def getNationalities(title, f, url):
 	teams = title.split("-")
 	if len(teams) != 2:
-		message = "NO CORRECT MATCH " + title + " not found.---"
+		message = "NO CORRECT MATCH " + title + +'\t' + url + " not found.---"
 		out (message, f)
 		return -1
 
@@ -57,6 +57,15 @@ def checkPenalty(list, type, f, messageMatch):
 				message = '\t' + type + " - " + eventText + '\t' + messageMatch
 				out(message, f)
 
+def buildUrlList(urlList, i, fin):
+	if i > fin:
+		print "Error loop buildUrlList"
+		return
+	while i < fin:
+		i += 1
+		url_aux = baseURL + str(i) + "/Live"
+		urlList.append(url_aux)
+
 ### ----- Driver setup ------
 driver = webdriver.Firefox()
 driver.maximize_window()
@@ -76,19 +85,22 @@ with open('outScript.txt', 'w+') as fScr, open('outSpanish.txt', 'w+') as fSpani
 	urlList = []
 
 	#Build URL list
-	i = 862052
-	fin = 862258
-	while i < fin:
-		i += 1
-		url_aux = baseURL + str(i) + "/Live"
-		urlList.append(url_aux)
+		# Spanish 14-15
+		# buildUrlList(urlList, 862052, 862258)
+	# English 14-15
+	buildUrlList(urlList, 829513, 829848)
+	# German 14-15
+	buildUrlList(urlList, 834589, 834899)
+	# Italian 14-15
+	buildUrlList(urlList, 865781, 866178)
 
-	urlList = ['http://www.whoscored.com/Matches/829799/Live', 'http://www.whoscored.com/Matches/862058/Live']
+	#urlList = ['http://www.whoscored.com/Matches/829799/Live', 'http://www.whoscored.com/Matches/862058/Live']
 
 	for url in urlList:
+		time.sleep(31)
 		driver.get(url)
 
-		typeNat = getNationalities(driver.title, fScr)
+		typeNat = getNationalities(driver.title, fScr, url)
 
 		fileAux = None
 		if (typeNat == -1):
