@@ -4,55 +4,78 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 import time
 
-SPANISH_TEAMS = ["Atletico Madrid", "Real Madrid", "Barcelona", "Valencia", "Sevilla",
+SPANISH_TEAMS = ["Atletico Madrid", "Real Madrid", "Barcelona", "Valencia", "Sevilla", "Real Betis",
 				 "Villareal", "Villarreal", "Athletic Club", "Athletic Bilbao", "Celta Vigo", "Malaga", "Espanyol", "Rayo Vallecano", "Real Sociedad",
-				 "Elche", "Levante", "Getafe", "Deportivo La Coruna", "Granada", "Eibar", "Almeria", "Cordoba",
-				 "Real Betis"]
+				 "Elche", "Levante", "Getafe", "Deportivo La Coruna", "Granada", "Eibar", "Almeria", "Cordoba"]
+
+ENGLISH_TEAMS = ["Arsenal", "Sunderland", "West Bromwich Albion", "Aston Villa", "Burnley", "Chelsea", "Sunderland", "crystal Palace", "Swansea", "Everton",
+				 "Tottenham", "Hull", "Manchester United", "Leicester", "Queens Park Rangers", "Manchester City", "Southampton", "Newcastle United", "West Ham", "Stoke", "Liverpool"]
+
+GERMAN_TEAMS = ["Bayern Munich", "Mainz 05", "Borussia Dortmund", "Werder Bremen", "Borussia M.Gladbach", "Augsburg","Hoffenheim","Hertha Berlin","Hannover 96","Freiburg","Eintracht Frankfurt",
+				"Bayer Leverkusen","Hamburger SV","Schalke 04","FC Cologne","Wolfsburg","Paderborn","VfB Stuttgart"]
+
+ITALIAN_TEAMS = ["Lazio","Roma","Verona","Juventus","Atalanta","AC Milan","Cagliari","Udinese","Torino","Cesena","Fiorentina","Chievo","Inter",
+				 "Empoli","Sassuolo","Genoa","Napoli","Lazio","Roma","Palermo","Sampdoria","Parma"]
 
 def out(message, file):
 	file.write(message.encode('utf8') + '\n')
 	print message
 
-def getTeams(title, f):
+# Returns: -1 == No coincidence
+# 			0 == Spanish
+#          	1 == English
+#			2 == German
+#			3 == Italian
+def getNationalities(title, f):
 	teams = title.split("-")
-	spanish_match = True
-	for tm in teams:
-		if tm not in SPANISH_TEAMS:
-			message = tm + " not Spanish.---"
-			out (message, f)
-			return False;
-	return spanish_match
+	if len(teams) != 2:
+		message = "NO CORRECT MATCH " + title + " not found.---"
+		out (message, f)
+		return -1
 
-def checkPenalty(list, type, f):
+	if teams[0] in SPANISH_TEAMS and teams[1] in SPANISH_TEAMS:
+		return 0 	# Spanish
+	elif teams[0] in ENGLISH_TEAMS and teams[1] in ENGLISH_TEAMS:
+		return 1 	# English
+	elif teams[0] in GERMAN_TEAMS and teams[1] in GERMAN_TEAMS:
+		return 2 	# German
+	elif teams[0] in ITALIAN_TEAMS and teams[1] in ITALIAN_TEAMS:
+		return 3 	# Italian
+
+	# Other teams
+	message = title + " not found.---"
+	out (message, f)
+	return -1			# Not found
+
+def checkPenalty(list, type, f, messageMatch):
 	contador = 0
 	for el in list:
 		contador += 1
 		if el.text:
 			eventText = el.text.replace('\n',' ')
 			if "PENALTY" in eventText.upper():
-				message = "\t" + type + " - " + eventText
+				message = '\t' + type + " - " + eventText + '\t' + messageMatch
 				out(message, f)
 
 ### ----- Driver setup ------
 driver = webdriver.Firefox()
 driver.maximize_window()
-#driver.set_window_position(-110,-600)
 driver.maximize_window()
 driver.delete_all_cookies()
 
-with open('outFile.txt', 'w+') as f:
+extraDebug = True
+
+with open('outScript.txt', 'w+') as fScr, open('outSpanish.txt', 'w+') as fSpanish, open('outEnglish.txt', 'w+') as fEnglish, \
+	 open('outGerman.txt', 'w+') as fGerman, open('outItalian.txt', 'w+') as fItalian:
 
 	message = ":::OpenPenalty: Start script at::: " + time.ctime()
-	out (message, f)
+	out (message, fScr)
 
 	baseURL = "http://www.whoscored.com/Matches/"
 
 	urlList = []
-	#urlList = ["http://www.whoscored.com/Matches/985501/Live", "http://www.whoscored.com/Matches/985519/Live", "http://www.whoscored.com/Matches/985563/Live",
-	#		   "http://www.whoscored.com/Matches/985555/Live", "http://www.whoscored.com/Matches/985553/Live"]
-	#url = "http://www.whoscored.com/Matches/985501/Live"
 
-	#build url list
+	#Build URL list
 	i = 862052
 	fin = 862258
 	while i < fin:
@@ -60,18 +83,32 @@ with open('outFile.txt', 'w+') as f:
 		url_aux = baseURL + str(i) + "/Live"
 		urlList.append(url_aux)
 
+	urlList = ['http://www.whoscored.com/Matches/829799/Live', 'http://www.whoscored.com/Matches/862058/Live']
+
 	for url in urlList:
 		driver.get(url)
 
-		spanishMatch = getTeams(driver.title, f)
+		typeNat = getNationalities(driver.title, fScr)
 
-		message = "# Match: " + driver.title + " | URL: " + url
-		out (message, f)
+		fileAux = None
+		if (typeNat == -1):
+			continue
+		elif (typeNat == 0):
+			fileAux = fSpanish
+		elif (typeNat == 1):
+			fileAux = fEnglish
+		elif typeNat == 2:
+			fileAux = fGerman
+		elif typeNat == 3:
+			fileAux = fItalian
 
-		if spanishMatch:
+		messageMatch = "# Match: " + driver.title + " | URL: " + url
+		#if extraDebug:
+			#out (messageMatch, fScr)
+
+		if typeNat > 0:
 			links = driver.find_elements_by_partial_link_text('Match Commentary')
 			for link in links:
-				#print link.get_attribute("href")
 				link.click()
 
 			total_pages_text = driver.find_element_by_class_name('total-pages')
@@ -81,9 +118,9 @@ with open('outFile.txt', 'w+') as f:
 			while currentPage < totalPages:
 				currentPage += 1
 				list15 = driver.find_elements_by_xpath("//*[@data-type=15]")
-				checkPenalty(list15, "FAIL", f)
+				checkPenalty(list15, "FAIL", fileAux, messageMatch)
 				list16 = driver.find_elements_by_xpath("//*[@data-type=16]")
-				checkPenalty(list16, "GOAL", f)
+				checkPenalty(list16, "GOAL", fileAux, messageMatch)
 
 				#print "Next page"
 				spans = driver.find_elements_by_class_name('page-navigation-item')
